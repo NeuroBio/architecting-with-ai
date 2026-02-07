@@ -19,6 +19,48 @@
 
 	<section>
 		<article class="entry">
+			<h2>A Masterclass in Discipline</h2>
+			<p>
+				Self discipline is the framework that underlies how I do this and everything else in this document.
+				If you can't do this, the other tips won't help very much.
+				What does discipline look like?
+				The same things every good software development book screams at you to do.
+				TDD.
+				Knowing when you are wearing your development hat versus your refactoring hat.
+				Validating assumptions.
+				Code review.
+				But I'll scream it at you again as my process.
+			</p>
+			<ul>
+				<li>I give the AI the story text, any architectural knowledge or technical constraints I know about and my plan to implement.  I tell it to summarize back to me.</li>
+				<li>I tell it to ask clarifying questions.  I answer them.</li>
+				<li>I tell it what step we are starting on.</li>
+				<li>I tell it one-by-one what my assumptions are and demand it validate my assumptions.</li>
+				<li>I tell it to prototype a specific piece of code in the chat.  It always generates a small code snippet.  Not 100s of lines.  5-10.  Max 15.</li>
+				<li>I review.  Something makes me cringe.  I tell it to update the prototype</li>
+				<li>I repeat until I stop cringing and it’s production ready.</li>
+				<li>I tell it to keep that prototype in mind.  I give it the first scenario and assertion to write as a unit test and stop.</li>
+				<li>I make sure the test fails.</li>
+				<li>I tell it to add enough to the prototype to pass the test (I explicitly tell it what parts to move) and stop.</li>
+				<li>I make sure the test passes.</li>
+				<li>Repeat until all code is implemented.</li>
+				<li>I then ask the AI if it thinks we missed any test cases.</li>
+				<li>We implement any I agree are meaningful.</li>
+				<li>I ask it if it thinks we missed anything else.</li>
+				<li>If not, I tell it to summarize our progress and suggest the next step.</li>
+				<li>Repeat until development is done.</li>
+				<li>Then I request a PR summary.  I have special rules for that so I get something good.</li>
+			</ul>
+
+			<p>
+				To state this obvious: this isn't feeding the AI a user story and begging the magic box to implement a feature for you.
+				This doing the hard work of being a software engineer.
+				The AI is there is validate, prototype, summarize, analyze, and keep you from forgetting things.
+				But, trust me, the second your discipline wavers on this plan is the second the AI becomes unruly and over "helpful."
+			</p>
+
+		</article>
+		<article class="entry">
 			<h2>Pick Your Persona Poison</h2>
 			<p>
 				By default, the AI wants to be your coding buddy.
@@ -103,7 +145,7 @@
 				Sometimes, it has a better idea of what to do next than I do.		
 			</p>
 			<p>
-				Second, it brings the initial plan to the end of the context.
+				Second, it brings the initial plan to the end of the context as a checklist.
 				It's fresh in the AI's sliding window again.
 				I'm taking advantage of its recency bias.
 				Bringing that list forward at the end of each development stage keeps
