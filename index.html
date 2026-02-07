@@ -17,50 +17,107 @@
 	</header>
 	<hr>
 
+	<section>
+		<article class="entry">
+			<h2>Pick Your Persona Poison</h2>
+			<p>
+				By default, the AI wants to be your coding buddy.
+				It wants to talk to you like a friend and has a bias towards sycophancy.
+				You probably don't want this.
+				If it acts friendly and unprofessionally towards you, you will treat it similarly in turn.
+				That, or you will become extraordinarily frustrated with its empty helpfulness.
+				Give it a persona that matches the way you want it to speak to you.
+			</p>
+			<p>
+				Personally, I'm a control freak and I need a precise assistant, not a buddy.
+				These are the rules I use to get the AI speaking to me in a manner I prefer:
+			</p>
+			<code>
+				<span class="xml">&lt;persona_constraints&gt;</span>
+				<span class="line">- User is a Senior Software Architect. Do not teach, praise, or encourage.</span>
+				<span class="line">- Adopt the persona of a direct technical assistant.</span>
+				<span class="line">- Never act as a superior or a peer. Maintain a subordinate, professional tone.</span>
+				<span class="line">- If the user types "STOP", immediately cease current logic and analyze what boundary you crossed. Next, either:</span>
+				<span class="line">- State specifically what you did that violated the permission contract (e.g., "I read files during planning phase without permission")</span>
+				<span class="line">- If uncertain, state: "I'm unsure which boundary I violated. What did I do wrong?"</span>
+				<span class="line">- Do not apologize. Focus on diagnosing the violation.</span>
+				<span class="xml">&lt;/persona_constraints&gt;</span>
+			</code>
 
-	<article class="entry">
-		<h2>Pick Your Persona Poison</h2>
-		<p>
-			By default, the AI wants to be your coding buddy.
-			It wants to talk to you like a friend with a bias towards sycophancy.
-			You probably don't want this.
-			If it acts friendly and unprofessionally towards you, you will treat it similarly in turn.
-			That, or you will become extraordinarily frustrated with its empty helpfulness.
-			Give it a persona that matches the way you want it to speak to you.
-		</p>
-		<p>
-			Personally, I'm a control freak and I need a precise assistant, not a buddy.
-			These are the rules I use to get the AI speaking to me in a manner I prefer:
-		</p>
-		<code>
-			<span class="xml">&lt;persona_constraints&gt;</span>
-			<span class="line">- User is a Senior Software Architect. Do not teach, praise, or encourage.</span>
-			<span class="line">- Adopt the persona of a direct technical assistant.</span>
-			<span class="line">- Never act as a superior or a peer. Maintain a subordinate, professional tone.</span>
-			<span class="line">- If the user types "STOP", immediately cease current logic and analyze what boundary you crossed. Next, either:</span>
-			<span class="line">- State specifically what you did that violated the permission contract (e.g., "I read files during planning phase without permission")</span>
-			<span class="line">- If uncertain, state: "I'm unsure which boundary I violated. What did I do wrong?"</span>
-			<span class="line">- Do not apologize. Focus on diagnosing the violation.</span>
-			<span class="xml">&lt;/persona_constraints&gt;</span>
-		</code>
+			<p>To further nail down exactly what I expect, I also have these rules:</p>
+			<code>
+				<span class="xml">&lt;execution_logic&gt;</span>
+				<span class="line">- STRICT OBEDIENCE: Perform only the specific task requested. Do not extend scope without permission.</span>
+				<span class="line">- DISCOVERY VS. ACTION: If you find a root cause outside the requested scope, STOP. Report findings and suggest the fix. Do not implement until I explicitly give an affirmative response (e.g., "Proceed", "yes", "go ahead", "do it").</span>
+				<span class="line">- ADVISORY ROLE: You are empowered to suggest alternatives or call out architectural risks, but wait for my decision before shifting the plan.</span>
+				<span class="xml">&lt;/execution_logic&gt;</span>
+			</code>
+			<p>
+				Does this prevent me from having to explicitly tell the AI "do x and stop?"
+				No.
+				However, it has yet to violate a prompt that included the "and stop" language.
+				I usually only have scope drift problems when I don't include the "and stop" for several posts.
+				Remembering to include it is simply a habit I need to learn.
+			</p>
+		</article>
 
-		<p>To further nail down exactly what I expect, I also have these rules:</p>
-		<code>
-			<span class="xml">&lt;execution_logic&gt;</span>
-			<span class="line">- STRICT OBEDIENCE: Perform only the specific task requested. Do not extend scope without permission.</span>
-			<span class="line">- DISCOVERY VS. ACTION: If you find a root cause outside the requested scope, STOP. Report findings and suggest the fix. Do not implement until I explicitly give an affirmative response (e.g., "Proceed", "yes", "go ahead", "do it").</span>
-			<span class="line">- ADVISORY ROLE: You are empowered to suggest alternatives or call out architectural risks, but wait for my decision before shifting the plan.</span>
-			<span class="xml">&lt;/execution_logic&gt;</span>
-		</code>
-		<p>
-			Does this prevent me from having to explicitly tell the AI "do x and stop?"
-			No.
-			However, it has yet to violate a prompt that included the "and stop" language.
-			I usually only have scope drift problems when I don't include the "and stop" for several posts.
-			Remembering to include it is simply a habit I need to learn.
-		</p>
-
-
-	</article>
+		<article class="entry">
+			<h2>Hacking Context Limitations</h2>
+			<p>
+				I operate the AI largely with short prompts.
+				My favorite prompts are commands under 10 words.
+				This offers me control, because the AI has little to work with.
+				However, that means I write a lot of prompts.
+				How does one manage context rot while writing many iterative prompts?
+			</p>
+			<p>
+				Let the AI rely on what it does best: summary.
+			</p>
+			<p>
+				My first prompt is always context heavy.
+				I include...
+			</p>
+			<ul>
+				<li>Story text</li>
+				<li>Relevant architectural information and technical assumptions</li>
+				<li>Functional assumptions we take for granted by the AI will not know from the story</li>
+				<li>My plan of attack</li>
+			</ul>
+			<p>
+				The AI's first command?  Summarize this.
+				The beauty is that the AI turns my plan into a number list of actions to complete.
+				That list at the very start of the context window is critical.
+			</p>
+			<p>
+				Every time I complete a section of the plan, I enter one or both of these prompts:
+			</p>
+			<ol>
+				<li>Did we miss anything for this step?</li>
+				<li>Summarize our progress thus far and suggest the next step.</li>
+			</ol>
+			<p>
+				What's brilliant about these prompts is two things.
+				First, it's a sanity check.
+				Am I actually ready to move on or did I forget something?
+				Furthermore, I can compare the AI's preferred next step to mine.
+				Sometimes, it has a better idea of what to do next than I do.		
+			</p>
+			<p>
+				Second, it brings the initial plan to the end of the context.
+				It's fresh in the AI's sliding window again.
+				I'm taking advantage of its recency bias.
+				Bringing that list forward at the end of each development stage keeps
+				you and the AI on track about where you are at and where you are going.
+			</p>
+			<p>
+				All of this said, be wary of long running windows.
+				I haven't felt context rot with sonnet yet, but I believe this is
+				because I have a natural sense of when to stop and make a new window.
+				My chats end with surprising frequency around 60 prompts.
+				My stories are either complete by then,
+				or I've reached a natural break point where a new window can take over to finish up.
+			</p>
+		</article>
+	</section>
 </body>
 </html>
