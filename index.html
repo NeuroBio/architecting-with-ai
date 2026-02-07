@@ -150,7 +150,7 @@
 					What would you advise?
 				</p>
 				<p>
-					<b>Sonnet:</b> Returning meta-data about an operation doesn't break CQRS.  Don't implement the getter for transient data; just return the metadata.
+					<b>Sonnet:</b> Returning metadata about an operation doesn't break CQRS.  Don't implement the getter for transient data; just return the metadata.
 				</p>
 			</div>
 
@@ -159,7 +159,8 @@
 				In anecdote 2, I didn't sound sure enough of myself so it did what it thought was right (which was an "easier," though wrong, fix).
 				I recovered by being explicit that what I asked for wasn't optional.
 				In anecdote 3, I did express uncertainty, but I bounded it to a very limited set of options based on architectural patterns.
-				The AI followed suit.  it weighed the two options and returned with a defensible opinion.
+				The AI followed suit.
+				It weighed the two options and returned with a defensible opinion.
 				A defense strong enough that I could use on a PR if I were questioned on why I chose that option.
 			</p>
 			<p>
@@ -192,7 +193,7 @@
 			</ul>
 			<p>
 				The AI's first command?  Summarize this.
-				The beauty is that the AI turns my plan into a number list of actions to complete.
+				The beauty is that the AI turns my plan into a numbered list of actions to complete.
 				That list at the very start of the context window is critical.
 			</p>
 			<p>
@@ -223,6 +224,15 @@
 				My chats end with surprising frequency around 60 prompts.
 				My stories are either complete by then,
 				or I've reached a natural break point where a new window can take over to finish up.
+			</p>
+			<p>
+				If 60 prompts sounds like a ton to get through without feeling context rot, then look at your prompts.
+				Are they simple or complex?
+				I get to 60 because many of my prompts are as simple as
+				"Implement scenario X with assertion Y in file Z"
+				or
+				"I believe that property X is never used in the client.  Sanity check me."
+				In the case of the second one, I was in fact wrong.  The AI had the code line receipts to prove it.
 			</p>
 		</article>
 	</section>
