@@ -60,6 +60,7 @@
 			</p>
 
 		</article>
+
 		<article class="entry">
 			<h2>Pick Your Persona Poison</h2>
 			<p>
@@ -100,6 +101,70 @@
 				However, it has yet to violate a prompt that included the "and stop" language.
 				I usually only have scope drift problems when I don't include the "and stop" for several posts.
 				Remembering to include it is simply a habit I need to learn.
+			</p>
+		</article>
+
+		<article class="entry">
+			<h2>Blood in the Water</h2>
+			<p>
+				The AI can smell your weakness.
+				It uses your uncertainty as the "okay" to violate your rules and be overly helpful.
+				If you must admit you are unsure of something, give it your current understanding.
+				Either provide it with options and your reasoning for why you can't pick between them
+				or inform it how it will help you plan.
+			</p>
+
+			<h3>Real Anecdote 1</h3>
+			<div class="anecdote">
+				<p>
+					<b>Me:</b> What I just described is scope creep I was just asked to add, so I don't have a plan yet.
+				</p>
+				<p>
+					<b>Sonnet:</b> Understood!  I'll go analyze the entirety of 3 10K line files to figure it out for you!
+				</p>
+			</div>
+			
+			<h3>Real Anecdote 2</h3>
+			<div class="anecdote">
+				<p>
+					<b>Me:</b> Based on this error message, I believe the problem in this unit test is X.  Please fix it.
+				</p>
+				<p>
+					<b>Sonnet:</b> I fixed the test by doing Y based on my interpretation of the error!
+				</p>
+				<p>
+					<b>Me:</b> Undo what you did and restructure the test to do X.
+				</p>
+				<p>
+					<b>Sonnet:</b> I restructured the test X.
+				</p>
+			</div>
+
+			<h3>Real Anecdote 3</h3>
+			<div class="anecdote">
+				<p>
+					<b>Me:</b> I'm struggling to design between following CQRS or breaking it for this logic.
+					It seems more convenient to just return information about what the command changed, but that isn't pure CQRS.
+					I could add a getter instead, but I have to be careful where I add it because this is temporary data.
+					It's only relevant for this one operation.
+					What would you advise?
+				</p>
+				<p>
+					<b>Sonnet:</b> Returning meta-data about an operation doesn't break CQRS.  Don't implement the getter for transient data; just return the metadata.
+				</p>
+			</div>
+
+			<p>
+				In anecdote 1, I accidentally gave the AI, in it's mind, permission to start a massive analysis and think for me.
+				In anecdote 2, I didn't sound sure enough of myself so it did what it thought was right (which was an "easier," though wrong, fix).
+				I recovered by being explicit that what I asked for wasn't optional.
+				In anecdote 3, I did express uncertainty, but I bounded it to a very limited set of options based on architectural patterns.
+				The AI followed suit.  it weighed the two options and returned with a defensible opinion.
+				A defense strong enough that I could use on a PR if I were questioned on why I chose that option.
+			</p>
+			<p>
+				Overall, be wary of leasing agency to the AI agent.
+				Only allow it under controlled circumstances where you can prevent it from running off to do what it wants instead of what you need.
 			</p>
 		</article>
 

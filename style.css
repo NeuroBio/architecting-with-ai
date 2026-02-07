@@ -22,9 +22,23 @@ h2 {
 	margin-top: 0;
 }
 
+h3 {
+	font-size: 14pt;
+	margin-top: 0;
+}
+
 p, li {
 	font-size: 12pt;
 	color: whitesmoke;
+}
+
+b {
+	font-size: 13pt;
+	color: white;
+}
+
+.anecdote {
+	margin-left: 10px;
 }
 
 li::marker {
