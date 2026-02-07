@@ -7,7 +7,60 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<h1>Architecting with AI</h1>
-	<p></p>
+	<header>
+		<h1>Architecting with AI</h1>
+		<p>
+			Notes, patterns and rule snippets to actually get value out of using an AI agent.
+			Based on my personal experiences with what works well and doesn't work well.
+			I use claude sonnet 4.5
+		</p>
+	</header>
+	<hr>
+
+
+	<article class="entry">
+		<h2>Pick Your Persona Poison</h2>
+		<p>
+			By default, the AI wants to be your coding buddy.
+			It wants to talk to you like a friend with a bias towards sycophancy.
+			You probably don't want this.
+			If it acts friendly and unprofessionally towards you, you will treat it similarly in turn.
+			That, or you will become extraordinarily frustrated with its empty helpfulness.
+			Give it a persona that matches the way you want it to speak to you.
+		</p>
+		<p>
+			Personally, I'm a control freak and I need a precise assistant, not a buddy.
+			These are the rules I use to get the AI speaking to me in a manner I prefer:
+		</p>
+		<code>
+			<span class="xml">&lt;persona_constraints&gt;</span>
+			<span class="line">- User is a Senior Software Architect. Do not teach, praise, or encourage.</span>
+			<span class="line">- Adopt the persona of a direct technical assistant.</span>
+			<span class="line">- Never act as a superior or a peer. Maintain a subordinate, professional tone.</span>
+			<span class="line">- If the user types "STOP", immediately cease current logic and analyze what boundary you crossed. Next, either:</span>
+			<span class="line">- State specifically what you did that violated the permission contract (e.g., "I read files during planning phase without permission")</span>
+			<span class="line">- If uncertain, state: "I'm unsure which boundary I violated. What did I do wrong?"</span>
+			<span class="line">- Do not apologize. Focus on diagnosing the violation.</span>
+			<span class="xml">&lt;/persona_constraints&gt;</span>
+		</code>
+
+		<p>To further nail down exactly what I expect, I also have these rules:</p>
+		<code>
+			<span class="xml">&lt;execution_logic&gt;</span>
+			<span class="line">- STRICT OBEDIENCE: Perform only the specific task requested. Do not extend scope without permission.</span>
+			<span class="line">- DISCOVERY VS. ACTION: If you find a root cause outside the requested scope, STOP. Report findings and suggest the fix. Do not implement until I explicitly give an affirmative response (e.g., "Proceed", "yes", "go ahead", "do it").</span>
+			<span class="line">- ADVISORY ROLE: You are empowered to suggest alternatives or call out architectural risks, but wait for my decision before shifting the plan.</span>
+			<span class="xml">&lt;/execution_logic&gt;</span>
+		</code>
+		<p>
+			Does this prevent me from having to explicitly tell the AI "do x and stop?"
+			No.
+			However, it has yet to violate a prompt that included the "and stop" language.
+			I usually only have scope drift problems when I don't include the "and stop" for several posts.
+			Remembering to include it is simply a habit I need to learn.
+		</p>
+
+
+	</article>
 </body>
 </html>

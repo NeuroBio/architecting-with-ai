@@ -1,0 +1,59 @@
+body {
+	background-color: rgb(31, 31, 31);
+	color: rgb(142, 221, 96);
+	line-height: 1.65;
+}
+
+hr {
+	border-color: rgb(142, 221, 96);
+}
+
+h1 {
+	font-size: 20pt;
+	margin-bottom: 0;
+}
+
+header, p {
+	margin-top: 0;
+}
+
+h2 {
+	font-size: 17pt;
+	margin-top: 0;
+}
+
+p {
+	font-size: 12pt;
+}
+
+code {
+	font-size: 10pt;
+	display: block;
+	background-color: black;
+	padding: 5px;
+	border-radius: 10px;
+	margin-bottom: 1em;
+}
+
+header {
+	max-width: 650px;
+}
+
+article {
+	max-width: 650px;
+	border: solid 1px rgb(143, 182, 121);
+	border-radius: 10px;
+	padding: 5px;
+	box-sizing: border-box;
+}
+
+.xml {
+	display: block;
+	color: rgb(22, 216, 167);
+}
+
+.line {
+	display: block;
+	margin-left: 15px;
+	color:rgb(171, 235, 219)
+}
