@@ -235,6 +235,99 @@
 				In the case of the second one, I was in fact wrong.  The AI had the code line receipts to prove it.
 			</p>
 		</article>
+
+		<article class="entry">
+			<h2>Word Salad to Effective Prose</h2>
+			<p>
+				I love writing documentation.
+				Yes, you heard me.
+				I love it.
+				I love writing.
+				I love expressing my technical mastery.
+				I love smugly saying, <i>"Did you read the documentation?"</i>
+			</p>
+			<p>
+				You know what I don't have though?
+				Time.
+				Time to turn the steel wool insanity of a massive architecture abstracted in my head into the kind of simple, clear documentation I love.
+			</p>
+			<p>
+				You know what I do have time for?
+				Half-baked, semi-cynical rants.
+				And no I don't just mean these entries.
+			</p>
+			<p>
+				I don't have the data yet,
+				but I have a strong hunch that I know exactly how to get the AI to give me the best PR summaries,
+				summaries of changes to dependencies shared across teams, and yes formal technical documentation
+				Remember my framework for working with the AI?
+				It starts with feeding it the story, architectural assumptions, and my plan.
+				We validate assumptions as I go.
+				And, an unstated conceit, I try to do all the key thinking work in one window.
+			</p>
+			<p>
+				I deeply believe that my typo ridden, confused ramblings are understood by the AI because it summarizes them well when I ask it to.
+				And between that and all the other context it's given, I think the only thing standing between me and solid documentation is a few simple rules.
+				This is what I'm working with now:
+			</p>
+			<code>
+				<span class="xml">&lt;pr_summary&gt;</span>
+				<span class="line">- TRIGGER: When user types "Generate PR summary" or at end of story when requested</span>
+				<span class="line">- PURPOSE: Explain the overall solution to another developer reviewing the PR</span>
+				<span class="line">- STRUCTURE:</span>
+				<span class="line">Summary: Brief overview of what was implemented and why</span>
+				<span class="line">Solution: Detailed explanation of the approach taken</span>
+				<span class="line">Key Implementation Details: Highlight important technical decisions, edge cases, or non-obvious behavior</span>
+				<span class="line">- EXCLUDE: Unit tests, research process, debugging steps, test failures, iterations</span>
+				<span class="line">- FOCUS: Final working solution, architectural decisions, integration points</span>
+				<span class="line">- LENGTH: Brief but informative - enough for a developer to understand the change without reading every line of code</span>
+				<span class="line">- TONE: Professional, technical, focused on "what" and "why"</span>
+				<span class="xml">&lt;/pr_summary&gt;</span>
+				<br>
+				<span class="xml">&lt;shared_code_summary&gt;</span>
+				<span class="line">- TRIGGER: When user types "Generate Shared Code summary" or when changes affect Server/Common/ or other shared zones</span>
+				<span class="line">- PURPOSE: Explain changes to teams that depend on shared code</span>
+				<span class="line">- AUDIENCE: Developers who use these components but didn't participate in the implementation</span>
+				<span class="line">- STRUCTURE:</span>
+				<span class="line">Changes: List what was added/modified</span>
+				<span class="line">Why: Brief business/technical justification</span>
+				<span class="line">How to Use: Practical examples showing the new API or behavior</span>
+				<span class="line">Example: Code snippet demonstrating typical usage</span>
+				<span class="line">- EXCLUDE: Unit tests, internal implementation details, research, debugging</span>
+				<span class="line">- FOCUS: Public API changes, new properties/methods, behavior changes, migration guidance (if breaking)</span>
+				<span class="line">- LENGTH: Concise - focus on what other teams need to know to use the changes correctly</span>
+				<span class="line">- TONE: Educational, practical, example-driven</span>
+				<span class="line">- CRITICAL: If breaking changes exist, call them out explicitly upfront</span>
+				<span class="xml">&lt;/shared_code_summary&gt;</span>
+
+			</code>
+			<p>And because that's not enough, I have one more key piece that applies to all my summary types:</p>
+			<code>
+				<span class="xml">&lt;emoji_prohibition&gt;</span>
+				<span class="line">- NEVER use emojis in any summaries.</span>
+				<span class="xml">&lt;/emoji_prohibition&gt;</span>
+			</code>
+			<p>
+				One very annoying problem I'm realized is that the AI may choose to conveniently forget these rules when I type
+				"Generate PR Summary" or "Generate Shared Code Summary."
+				My current work around is to add "Remember there are rules in the ruleset for this."
+				That seems to effectively enforce the AI actually listening to the rules I left for it.
+			</p>
+			<p>
+				A second annoying problem is the AI has no sense for what "brief" is.
+				I do better giving it a hard limit on number of lines.
+				It also does well if I let it run without restriction and then I tell it "cut by X%" (often 20%) as a first pass refinement.
+			</p>
+			<p>
+				For the PR review summaries, I only skim and then slap it onto the PR with the "Ai Generated Summary" warning slapped above it.
+				Given that it's more than I would have done, I think that's fair game.
+				For a shared team summary I take the time to read and edit the text.
+				So far, I don't have rules for technical documentation.
+				I'm still relying entirely on a fresh prompt for that because technical documentation need a purpose.
+				You can't encode purpose in rules, so I feel safer giving a de novo command.
+				But I'll update this as I keep experimenting.
+			</p>
+		</article>
 	</section>
 </body>
 </html>
