@@ -60,8 +60,10 @@ header {
 
 section {
 	display: flex;
-	flex-direction: column;
-	row-gap: 10px;
+	gap: 10px;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: flex-start;
 }
 
 article {
