@@ -308,23 +308,24 @@
 				<span class="xml">&lt;/emoji_prohibition&gt;</span>
 			</code>
 			<p>
-				One very annoying problem I'm realized is that the AI may choose to conveniently forget these rules when I type
+				One very annoying problem I'm realizing is that the AI may choose to conveniently forget these rules when I type
 				"Generate PR Summary" or "Generate Shared Code Summary."
 				My current work around is to add "Remember there are rules in the ruleset for this."
-				That seems to effectively enforce the AI actually listening to the rules I left for it.
+				That seems to effectively enforce the AI actually following the rules I left for it.
 			</p>
 			<p>
 				A second annoying problem is the AI has no sense for what "brief" is.
-				I do better giving it a hard limit on number of lines.
-				It also does well if I let it run without restriction and then I tell it "cut by X%" (often 20%) as a first pass refinement.
+				Frankly, I don't know what a good length is yet.
+				However, I do get better result when giving it a hard limit on number of lines on refinement.
+				It also does well if I tell it "cut by X%" (often 20%) as a first pass refinement.
 			</p>
 			<p>
-				For the PR review summaries, I only skim and then slap it onto the PR with the "Ai Generated Summary" warning slapped above it.
+				For the PR review summaries, I only skim them and then slap it onto the PR with the "Ai Generated Summary" warning above it.
 				Given that it's more than I would have done, I think that's fair game.
 				For a shared team summary I take the time to read and edit the text.
 				So far, I don't have rules for technical documentation.
-				I'm still relying entirely on a fresh prompt for that because technical documentation need a purpose.
-				You can't encode purpose in rules, so I feel safer giving a de novo command.
+				I'm still relying entirely on a fresh prompts for that because technical documentation need a purpose and purpose is malleable.
+				You can't encode a singular, all-encompassing purpose in rules, so I feel safer giving a de novo command.
 				But I'll update this as I keep experimenting.
 			</p>
 		</article>
