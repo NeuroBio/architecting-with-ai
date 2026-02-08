@@ -21,42 +21,43 @@
 		<article class="entry">
 			<h2>A Masterclass in Discipline</h2>
 			<p>
-				Self discipline is the framework that underlies how I do this and everything else in this document.
-				If you can't do this, the other tips won't help very much.
+				Self discipline is the framework that underlies how I genuinely work faster with AI and everything else in this document.
+				If you can't do maintain discipline, the other tips won't help very much.
 				What does discipline look like?
 				The same things every good software development book screams at you to do.
 				TDD.
 				Knowing when you are wearing your development hat versus your refactoring hat.
 				Validating assumptions.
 				Code review.
-				But I'll scream it at you again as my process.
+				But I'll scream it at you again in a summary of my process.
 			</p>
 			<ul>
 				<li>I give the AI the story text, any architectural knowledge or technical constraints I know about and my plan to implement.  I tell it to summarize back to me.</li>
 				<li>I tell it to ask clarifying questions.  I answer them.</li>
 				<li>I tell it what step we are starting on.</li>
-				<li>I tell it one-by-one what my assumptions are and demand it validate my assumptions.</li>
+				<li>I tell it one-by-one what my assumptions are and demand it validate my assumptions.  "Sanity check me" is my usual command.</li>
 				<li>I tell it to prototype a specific piece of code in the chat.  It always generates a small code snippet.  Not 100s of lines.  5-10.  Max 15.</li>
-				<li>I review.  Something makes me cringe.  I tell it to update the prototype</li>
+				<li>I review.  Something makes me cringe.  I tell it to update the prototype.</li>
 				<li>I repeat until I stop cringing and it’s production ready.</li>
 				<li>I tell it to keep that prototype in mind.  I give it the first scenario and assertion to write as a unit test and stop.</li>
 				<li>I make sure the test fails.</li>
-				<li>I tell it to add enough to the prototype to pass the test (I explicitly tell it what parts to move) and stop.</li>
+				<li>I either manually or via prompt I move enough to the prototype to pass the test (I explicitly tell it what parts to move when prompting) and stop.</li>
 				<li>I make sure the test passes.</li>
 				<li>Repeat until all code is implemented.</li>
-				<li>I then ask the AI if it thinks we missed any test cases.</li>
+				<li>I ask the AI if it thinks we missed any test cases.</li>
 				<li>We implement any I agree are meaningful.</li>
 				<li>I ask it if it thinks we missed anything else.</li>
 				<li>If not, I tell it to summarize our progress and suggest the next step.</li>
 				<li>Repeat until development is done.</li>
-				<li>Then I request a PR summary.  I have special rules for that so I get something good.</li>
+				<li>I request a PR summary.  I have special rules for that so I get something good.</li>
 			</ul>
 
 			<p>
 				To state this obvious: this isn't feeding the AI a user story and begging the magic box to implement a feature for you.
 				This doing the hard work of being a software engineer.
 				The AI is there is validate, prototype, summarize, analyze, and keep you from forgetting things.
-				But, trust me, the second your discipline wavers on this plan is the second the AI becomes unruly and over "helpful."
+				But, trust me, the second your discipline wavers is the second the AI becomes unruly and over "helpful."
+				It will go back to generating unmanageable slop.
 			</p>
 
 		</article>
@@ -67,7 +68,7 @@
 				By default, the AI wants to be your coding buddy.
 				It wants to talk to you like a friend and has a bias towards sycophancy.
 				You probably don't want this.
-				If it acts friendly and unprofessionally towards you, you will treat it similarly in turn.
+				If it acts friendly and unprofessionally towards you, you will likely treat it similarly in turn, reinforcing that behavior.
 				That, or you will become extraordinarily frustrated with its empty helpfulness.
 				Give it a persona that matches the way you want it to speak to you.
 			</p>
@@ -108,10 +109,9 @@
 			<h2>Blood in the Water</h2>
 			<p>
 				The AI can smell your weakness.
-				It uses your uncertainty as the "okay" to violate your rules and be overly helpful.
+				It uses your uncertainty as the "okay" take the lead, violating your rules "await permission" rules and becoming overly helpful.
 				If you must admit you are unsure of something, give it your current understanding.
-				Either provide it with options and your reasoning for why you can't pick between them
-				or inform it how it will help you plan.
+				Either inform it exactly what it needs to do to help you or provide it with a set of options and your reasoning for why you can't pick between them.
 			</p>
 
 			<h3>Real Anecdote 1</h3>
@@ -165,16 +165,16 @@
 			</p>
 			<p>
 				Overall, be wary of leasing agency to the AI agent.
-				Only allow it under controlled circumstances where you can prevent it from running off to do what it wants instead of what you need.
+				Only allow it the authority to decide for you under controlled circumstances where you can prevent it from running off to do what it wants instead of what you need.
 			</p>
 		</article>
 
 		<article class="entry">
 			<h2>Hacking Context Limitations</h2>
 			<p>
-				I operate the AI largely with short prompts.
+				I operate the AI largely with short prompts instead of long narratives.
 				My favorite prompts are commands under 10 words.
-				This offers me control, because the AI has little to work with.
+				This offers me control, because the AI has little room to imagine something outside of my scope.
 				However, that means I write a lot of prompts.
 				How does one manage context rot while writing many iterative prompts?
 			</p>
@@ -249,7 +249,7 @@
 			<p>
 				You know what I don't have though?
 				Time.
-				Time to turn the steel wool insanity of a massive architecture abstracted in my head into the kind of simple, clear documentation I love.
+				Time to turn the steel wool insanity of a massive, abstracted architecture into the kind of simple, clear documentation I love.
 			</p>
 			<p>
 				You know what I do have time for?
@@ -259,14 +259,14 @@
 			<p>
 				I don't have the data yet,
 				but I have a strong hunch that I know exactly how to get the AI to give me the best PR summaries,
-				summaries of changes to dependencies shared across teams, and yes formal technical documentation
+				shared dependency change summaries, and yes formal technical documentation
 				Remember my framework for working with the AI?
 				It starts with feeding it the story, architectural assumptions, and my plan.
 				We validate assumptions as I go.
-				And, an unstated conceit, I try to do all the key thinking work in one window.
+				And, an unstated conceit, I try to do all the key thinking work in one window if I do need multiple windows to complete a story.
 			</p>
 			<p>
-				I deeply believe that my typo ridden, confused ramblings are understood by the AI because it summarizes them well when I ask it to.
+				I deeply believe that my typo ridden, confused ramblings are understood by the AI because it summarizes them clearly when asked.
 				And between that and all the other context it's given, I think the only thing standing between me and solid documentation is a few simple rules.
 				This is what I'm working with now:
 			</p>
@@ -320,8 +320,8 @@
 				It also does well if I tell it "cut by X%" (often 20%) as a first pass refinement.
 			</p>
 			<p>
-				For the PR review summaries, I only skim them and then slap it onto the PR with the "Ai Generated Summary" warning above it.
-				Given that it's more than I would have done, I think that's fair game.
+				For the PR review summaries, I only skim them and then slap it onto the PR with the "AI Generated Summary" warning above it.
+				Given that it's more than I would have done, I think that's fair game laziness.
 				For a shared team summary I take the time to read and edit the text.
 				So far, I don't have rules for technical documentation.
 				I'm still relying entirely on a fresh prompts for that because technical documentation need a purpose and purpose is malleable.
@@ -351,7 +351,7 @@
 			</p>
 			<p>
 				It can also be a 9.4M token mistake when you ask it to update 50 tests in a 16K line file.
-				Yeah, I should have thought through that "simple" update better.
+				Yeah, I should have thought through that "simple," undisciplined update better.
 			</p>
 			<p>
 				So whats the alternative?
@@ -367,7 +367,7 @@
 			<p>
 				As an example, consider the second scenario:
 				A new feature that I need to test works in many consumers.
-				The feature is guarded by an if statement, so have a negative case (current functionality)
+				The feature is guarded by an if statement, so I have a negative case (current functionality)
 				and a positive case (new functionality).
 				I want to update the scenario of an existing test to reflect the negative case.
 				I also write a new test for the positive scenario. 
@@ -375,7 +375,7 @@
 			<ol>
 				<li>
 					I ask the AI to identify the files or tests I need to update.
-					Alternatively, I tell it with files or code snippets if I know.
+					Alternatively, I tell it which files or code snippets if I know need updates.
 					Regardless, I end by making it summarize the list.
 					The point is to get that list into the context.
 				</li>
@@ -383,7 +383,7 @@
 					I inform the AI that it must perform a series of operations in a loop with a prompt like this:
 					<ul>
 						<li>You will take the first consumer from our list.</li>
-						<li>You will identify the simplest test for that consumer and add to the scenario text "feature is disabled" and stop.</li>
+						<li>You will identify the simplest test for that consumer and add to the scenario text "feature is disabled", add an assertion that the new behavior did not occur, and stop.</li>
 						<li>After I verify the test is correct I will say "next".</li>
 						<li>You will make a new test based on the one you updated but for the "feature is enabled" scenario and stop.</li>
 						<li>I will verify the test fails without the production code and passes with the production code then say "next".</li>
@@ -413,13 +413,26 @@
 				Granted, that may have been lucky, but if you tell it to state where it is at in the process in your instructions,
 				I can promise it's capable of it.
 				That makes it even easier for you to know where you are at in the process and catch it if it gets lost or skips something.
-				Even without that, if you get lost you can ask it "summarize your progress" to see what it think it has done.
+				Even without that, if you get lost you can ask it "summarize your progress" to see what it thinks it has done.
 			</p>
 			<p>
 				Worst case scenario: if the AI is starting to struggle with obeying the loop,
 				ask it to resummarize the loop's plan.
 				Validate it's summary, then tell it where to pick back up.
 				It should be back on task then because the loop plan is back in its recency window.
+			</p>
+			<p>
+				A warning:
+				This process, as stated above, requires discipline.
+				If you are undisciplined and begin rubber stamping changes without verifying them,
+				you are again at risk of one AI mistake snowballing into a catastrophic mud ball.
+				I made this mistake once, when I okayed an update without making sure it hit the new production code.
+				The new tests also never hit the new code so they would never pass.
+				5 minutes of frustration later, I dumped the changes in that file,
+				demanded the AI find me a test that actually hit the relevant code,
+				verified it was correct on the third attempt,
+				and then restarted the looping process.
+				Everything went smoothly after that because I stopped slacking.
 			</p>
 		</article>
 	</section>
