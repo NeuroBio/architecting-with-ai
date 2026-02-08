@@ -22,7 +22,7 @@
 			<h2>A Masterclass in Discipline</h2>
 			<p>
 				Self discipline is the framework that underlies how I genuinely work faster with AI and everything else in this document.
-				If you can't do maintain discipline, the other tips won't help very much.
+				If you can't maintain discipline, the other tips won't help very much.
 				What does discipline look like?
 				The same things every good software development book screams at you to do.
 				TDD.
@@ -54,8 +54,8 @@
 
 			<p>
 				To state this obvious: this isn't feeding the AI a user story and begging the magic box to implement a feature for you.
-				This doing the hard work of being a software engineer.
-				The AI is there is validate, prototype, summarize, analyze, and keep you from forgetting things.
+				This is doing the hard work of being a software engineer.
+				The AI is there to validate, prototype, summarize, analyze, and keep you from forgetting things.
 				But, trust me, the second your discipline wavers is the second the AI becomes unruly and over "helpful."
 				It will go back to generating unmanageable slop.
 			</p>
@@ -262,7 +262,52 @@
 		</article>
 
 		<article class="entry">
-			<h2>Hacking Context Limitations</h2>
+			<h2>The Dog Bites Its Reflection</h2>
+			<p>
+				The last article focused on ways to intentionally guide your AIs behavior by choosing reinforcing or deterring words.
+				This article focuses on how the AI mirrors your biases.
+				Now, you should should have already chosen a persona that is subordinate without being submissive.
+				However, the AI will mold itself as you talk to it.
+				If you are injecting your biases into it, it may follow your lead despite logical proof that your bias is wrong.
+			</p>
+			<p>
+				Consider these different ways to say thing same thing.
+			</p>
+			<ol>
+				<li>
+					The variable name isn't used in the html logic, right?
+				</li>
+				<li>
+					I believe the variable isn't used in the html logic.  Sanity check me.
+				</li>
+				<li>
+					Is the variable name used in the html logic?
+				</li>
+			</ol>
+			<p>
+				In the first option, you are asking the AI to tell you that you are right.
+				You're leading it.
+				That temps it to agree with you to match its training instead of prove you wrong.
+			</p>
+			<p>
+				In the second option, you are challenging the AI.
+				You've revealed your opinion and said you want it to prove you right or inform you if you are wrong.
+				The bias is still tilted towards "prove the user right" but "prove the user wrong" is a more favorable outcome than with option 1.
+				As a high confidence user, this is my natural style when validating assumptions,
+				for better or worse.
+				I have received "You are incorrect" responses back from this style, but it is riskier.
+			</p>
+			<p>
+				The final option is the most objective.
+				It's a simple question with no implied "right" answer.
+				The AI has no reason to prefer a yes or no answer.
+				This is what I default to when I honestly don't know something or my confidence is low.
+				It's much harder to speak like this when I think I know the answer already.
+			</p>
+		</article>
+
+		<article class="entry">
+			<h2>Keeping the Rot at Bay</h2>
 			<p>
 				I operate the AI largely with short prompts instead of long narratives.
 				My favorite prompts are commands under 10 words.
@@ -280,7 +325,7 @@
 			<ul>
 				<li>Story text</li>
 				<li>Relevant architectural information and technical assumptions</li>
-				<li>Functional assumptions we take for granted by the AI will not know from the story</li>
+				<li>Functional assumptions we take for granted by the AI will not be known from the story</li>
 				<li>My plan of attack</li>
 			</ul>
 			<p>
@@ -329,7 +374,7 @@
 		</article>
 
 		<article class="entry">
-			<h2>Prompt Loops for Repetitive Tasks</h2>
+			<h2>Precision on Replay</h2>
 			<p>
 				You have a file with 10 tests you need to update to match a new interface.
 				Or maybe you have a new feature that affects 10 different consumers and their files.
