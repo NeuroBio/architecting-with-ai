@@ -329,6 +329,99 @@
 				But I'll update this as I keep experimenting.
 			</p>
 		</article>
+
+		<article class="entry">
+			<h2>Prompt Loops for Repetitive Tasks</h2>
+			<p>
+				You have a file with 10 tests you need to update to match a new interface.
+				Or maybe you have a new feature that affects 10 different consumers and their files.
+				The prompt you will tempted to write is "Update all tests."
+				DO.  NOT.  DO IT.
+			</p>
+			<p>
+				Best case scenario: it works.
+			</p>
+			<p>
+				Worst case scenario: it only worked sometimes and the AI reports back that <i>everything is correctly updated.</i>
+			</p>
+			<p>
+				The worst case scenario is far more likely, because the AI struggles as it has to perform many operations.
+				It is more likely to hallucinate that it made a change when it did not.
+				It is also more likely to get confused and create weird splices that are even harder to diagnose and fix than simple misses.
+			</p>
+			<p>
+				It can also be a 9.4M token mistake when you ask it to update 50 tests in a 16K line file.
+				Yeah, I should have thought through that "simple" update better.
+			</p>
+			<p>
+				So whats the alternative?
+				Discipline.
+				Identity a test.
+				Update a test.
+				Verify update was correct.
+				Repeat.
+				You have to verify everything anyway.
+				May as well do it in a controlled fashion where when you are done with each update you know it's right.
+			</p>
+			<h3> Making Discipline Easy</h3>
+			<p>
+				As an example, consider the second scenario:
+				A new feature that I need to test works in many consumers.
+				The feature is guarded by an if statement, so have a negative case (current functionality)
+				and a positive case (new functionality).
+				I want to update the scenario of an existing test to reflect the negative case.
+				I also write a new test for the positive scenario. 
+			</p>
+			<ol>
+				<li>
+					I ask the AI to identify the files or tests I need to update.
+					Alternatively, I tell it with files or code snippets if I know.
+					Regardless, I end by making it summarize the list.
+					The point is to get that list into the context.
+				</li>
+				<li>
+					I inform the AI that it must perform a series of operations in a loop with a prompt like this:
+					<ul>
+						<li>You will take the first consumer from our list.</li>
+						<li>You will identify the simplest test for that consumer and add to the scenario text "feature is disabled" and stop.</li>
+						<li>After I verify the test is correct I will say "next".</li>
+						<li>You will make a new test based on the one you updated but for the "feature is enabled" scenario and stop.</li>
+						<li>I will verify the test fails without the production code and passes with the production code then say "next".</li>
+						<li>You will then repeat the process with the next consumer.</li>
+						<li>Summarize this back to me so I know you understand.</li>
+					</ul>
+				</li>
+				<li>
+					I confirm that the summary is right.
+					Like the original list, I need this in context to keep the loop going.
+				</li>
+				<li>
+					If it looks correct, I say "begin the loop."
+				</li>
+			</ol>
+			<p>
+				The truly beautiful thing about this is twofold.
+				First, unless the AI mucks something up, you don't have to think about intelligent prompting for a bit.
+				It's "Next.  Next.  Next.  Next."
+				Until the AI makes a mistake, you can save your brain power for the actual step-by-step verification.
+				Just sanity check at the end that you see enough changes to match the original list.
+			</p>
+			<p>
+				Second: the AI loves lists.
+				It loves checking things off lists.
+				I have seen it tell me "moving onto consumer 2 of 4" of it's own accord.
+				Granted, that may have been lucky, but if you tell it to state where it is at in the process in your instructions,
+				I can promise it's capable of it.
+				That makes it even easier for you to know where you are at in the process and catch it if it gets lost or skips something.
+				Even without that, if you get lost you can ask it "summarize your progress" to see what it think it has done.
+			</p>
+			<p>
+				Worst case scenario: if the AI is starting to struggle with obeying the loop,
+				ask it to resummarize the loop's plan.
+				Validate it's summary, then tell it where to pick back up.
+				It should be back on task then because the loop plan is back in its recency window.
+			</p>
+		</article>
 	</section>
 </body>
 </html>
